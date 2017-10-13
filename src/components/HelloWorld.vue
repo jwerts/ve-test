@@ -17,17 +17,26 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+
+    <router-link to="Map">Map</router-link>
+    <div>{{ count }}</div>
+    <div>{{ countplusX }}</div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  computed: mapState({
+    count: state => state.count,
+    countplusX: (state, getters) => getters.countPlusX(10)
+  })
 }
 </script>
 

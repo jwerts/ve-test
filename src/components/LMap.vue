@@ -4,6 +4,7 @@
 
 <script>
 import * as L from 'leaflet';
+
 export default {
   name: 'LMap',
   data () {
@@ -19,6 +20,9 @@ export default {
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoiandlcnRzIiwiYSI6ImNpajVzMmNlMTAwNnF1bWx2OHg5azJoYmsifQ.LPkXb6ZRNRnCs4d1dGUnVg'
     }).addTo(map);
+    map.on('click', e => {
+      this.$store.commit('increment');
+    });
   }
 };
 </script>
